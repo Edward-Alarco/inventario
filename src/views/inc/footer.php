@@ -1,4 +1,6 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="src/views/resources/js/easy.qrcode.min.js"></script>
 <script src="src/views/resources/js/formularios.js"></script>
 
 

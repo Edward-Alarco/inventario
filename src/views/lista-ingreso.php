@@ -32,9 +32,9 @@
                         $tipo = $e -> selectTipoActivoController($row['id_tipo']);
 
                         echo "<tr>
-                            <td>".ucwords($row['nombre'])."</td>
+                            <td>".ucwords($row['nombre_producto'])."</td>
                             <td>".$tipo['tipo']."</td>
-                            <td>".$row['cantidad']."</td>
+                            <td>".$row['cantidad_inicial']."</td>
                             <td>".$row['datetime']."</td>
                         </tr>";
                     }

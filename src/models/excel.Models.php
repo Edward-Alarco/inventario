@@ -24,6 +24,14 @@
             return $stmt->fetch();
             $stmt = "";   
         }
+
+        public static function tipoModel($t){
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM tipos WHERE tipo=:tipo");
+            $stmt->bindParam(":tipo", $t, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt->fetch();
+            $stmt = "";   
+        }
     
     }
 

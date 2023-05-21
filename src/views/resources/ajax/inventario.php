@@ -6,16 +6,12 @@
     class inventarioAjax{
 
         public $name, $quantity, $type, $id_egreso, $delay;
+        public $datos;
 
-        public function ingresarActivo(){
-            $datos = array(
-                'name' => $this->name,
-                'quantity' => $this->quantity,
-                'type' => $this->type,
-                'delay' => $this->delay
-            );
-            //echo json_encode($datos);
-            $res =  inventarioController::ingresarActivoController($datos);
+        public function registrarActivo(){
+            $datos = $this->datos;
+            $respuesta =  inventarioController::registrarActivoController($datos);
+            echo json_encode($respuesta);
         }
 
         public function retirarActivo(){
@@ -53,12 +49,9 @@
 
     $e = new inventarioAjax();
 
-    if($_POST['validar'] == "registrarActivo"){
-        $e -> name = $_POST['name'];
-        $e -> quantity = $_POST['quantity'];
-        $e -> type = $_POST['type'];
-        $e -> delay = $_POST['delay'];
-        $e -> ingresarActivo();
+    if($_POST['validar'] == "registrar_activo"){
+        $e -> datos = $_POST;
+        $e -> registrarActivo();
     }
 
     if($_POST['validar'] == "egresarActivo"){

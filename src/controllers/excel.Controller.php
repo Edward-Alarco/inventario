@@ -18,6 +18,11 @@
 
         }
 
+        public static function tipoController($tipo){
+            $respuesta = excelModel::tipoModel($tipo);
+            return $respuesta;
+        }
+
     }
 
 ?>

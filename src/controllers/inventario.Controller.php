@@ -2,23 +2,50 @@
 
     class inventarioController{
 
-        public static function ingresarActivoController($datos){
+        public static function registrarActivoController($datos){
+
             date_default_timezone_set('America/Lima');
-            $time = date("Y-m-d H:i:s");
+            $datetime = date("Y-m-d H:i:s");
+            $datos['datetime'] = $datetime;
 
-            $activos = [];
+            // validar si el activo ya se encuentra en la bd
             $activos_bd = inventarioModel::selectActivosModel();
-            foreach ($activos_bd as $key) {
-                array_push($activos, strtoupper($key['nombre']));
+            $activos_validar = [];
+            if(!empty($activos_bd)){
+                foreach($activos_bd as $activo){
+                    array_push( $activos_validar, strtolower($activo['nombre_producto']) );
+                }
             }
 
-            if(!in_array(strtoupper($datos['name']), $activos)){
-                $respuesta = inventarioModel::ingresarActivoModel($datos, $time);
-                echo json_encode($respuesta);
+            //validar la cantidad de activos que se encuentran en el mismo ubigeo
+            $disponibilidad = inventarioModel::disponibilidadModel(intval($datos['posicion']));
+
+            if(in_array( strtolower($datos['nombre_producto']), $activos_validar )){
+                $respuesta = 'activo_repetido';
             }else{
-                $respuesta2 = 'repetido';
-                echo json_encode($respuesta2);
+
+                /*if(count($disponibilidad) > 5){
+                    $respuesta = 'ubigeo_lleno';
+                }else{*/
+
+                    //ingresar el activo
+                    $ingresando = inventarioModel::registrarActivoModel($datos);
+                    //obtener el id del activo ingresado recientemente
+                    $IDactivo = inventarioModel::seleccionarUltimaId()['id'];
+                    //listar en la tabla pdf
+                    if($datos['ruta_pdf'] != ''){
+                        $ruta = inventarioModel::registrarRutaPDFModel($IDactivo, $datos['ruta_pdf']);
+                    }
+
+                    if($ingresando){
+                        $respuesta = $datos;
+                    }
+
+                /*}*/
             }
+
+            return $respuesta;
+
         }
 
         public static function selectDelayTimesInRegisterController(){
@@ -147,8 +174,23 @@
             return $respuesta;
         }
 
+        public static function selectAllUbigeoController(){
+            $respuesta = inventarioModel::selectAllUbigeoModel();
+            return $respuesta;
+        }
+
         public static function selectActivoController($id){
             $respuesta = inventarioModel::selectActivoModel($id);
+            return $respuesta;
+        }
+
+        public static function ingresarUbigeoController($posicion){
+            $respuesta = inventarioModel::ingresarUbigeoModel($posicion, 2);
+            return $respuesta;
+        }
+
+        public static function verificarUbigeoController($posicion){
+            $respuesta = inventarioModel::verificarUbigeoModel($posicion);
             return $respuesta;
         }
 

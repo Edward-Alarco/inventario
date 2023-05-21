@@ -8,42 +8,60 @@ require_once dirname(__FILE__) . "/../controllers/inventario.Controller.php";
 require_once dirname(__FILE__) . "/../models/inventario.Models.php";
 
 $e = new inventarioController();
-$arrI = $e->selectAllTypesController();
+$tipos = $e->selectAllTypesController();
+$ubicaciones = $e->selectAllUbigeoController();
 ?>
+
+<input type="hidden" name="fecha" value="<?php echo date('d/m/Y'); ?>">
 
 <section class="py-5">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6">
-                <h1>Registro</h1>
+            <div class="col-12 col-md-6 mb-5">
                 <p>Completa el formulario para registrar el ingreso de un nuevo activo:</p>
                 <hr>
                 <form class="registro">
-                    <div class="alert alert-danger mb-3 desactived" role="alert">
-                        Completar todos los campos del formulario
+                    <input type="hidden" name="validar" value="registrar_activo">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del Producto</label>
+                        <input type="text" class="form-control" name="nombre_producto">
                     </div>
                     <div class="mb-3">
-                        <label for="name_product" class="form-label">Nombre del Producto</label>
-                        <input type="text" class="form-control" id="name_product">
-                    </div>
-                    <div class="mb-3">
-                        <label for="quantity" class="form-label">Cantidad</label>
-                        <input type="number" class="form-control" id="quantity">
+                        <label class="form-label">Cantidad</label>
+                        <input type="number" class="form-control" name="cantidad_inicial">
                     </div>
                     <div class="mb-4">
-                        <label for="type_product" class="form-label">Tipo de Producto</label>
-                        <select class="form-select" aria-label="Default select example" id="type_product">
-                            <option selected>Escoger el tipo del producto a registrar</option>
+                        <label class="form-label">Tipo de Producto</label>
+                        <select name="id_tipo" class="form-select">
+                            <!-- <option selected>Escoger el tipo del producto a registrar</option> -->
                             <?php 
-                            foreach ($arrI as $key) {
-                                echo '<option value="'.$key['id_tipo'].'">'.$key['tipo'].'</option>';
-                            }
+                            foreach ($tipos as $tipo):
+                                echo '<option value="'.$tipo['id_tipo'].'">'.$tipo['tipo'].'</option>';
+                            endforeach;
+                            ?>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Ubigeo</label>
+                        <select name="posicion" class="form-select">
+                            <!-- <option selected>Escoger la ubicación del producto a registrar</option> -->
+                            <?php 
+                            foreach ($ubicaciones as $ubicacion):
+                                echo '<option value="'.$ubicacion['posicion'].'">'.$ubicacion['posicion'].'</option>';
+                            endforeach;
                             ?>
                         </select>
                     </div>
 
                     <button type="submit" class="btn btn-primary w-50 py-2">Ingresar producto</button>
                 </form>
+            </div>
+            <div class="col-12 col-md-6 mb-5">
+                <p class="text-center"><b>QR</b></p>
+                <hr>
+                <div class="qr_image w-100 d-block" style="aspect-ratio:1/1">
+
+                </div>
             </div>
         </div>
     </div>
