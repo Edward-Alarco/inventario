@@ -65,7 +65,6 @@ if (document.querySelector('form.registro')) {
             
             //generacion del pdf
             pdfExport(producto);
-
         })
     })
 }
