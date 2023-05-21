@@ -1,0 +1,29 @@
+a{
+    text-decoration: none;
+}
+input{
+    outline: none;
+}
+form{
+    position: relative;
+}
+.alert.desactived{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+}
+.highcharts-credits, #stats1, #stats2, #options{
+    display: none;
+}
+.dataTables_wrapper .dataTables_length select,
+.dataTables_wrapper .dataTables_filter input{
+    border-radius: 2px !important;
+    border-color: #ccc !important;
+}
+.form-select option.disabled, 
+.invisible{
+    display: none;
+    opacity: 0;
+}
