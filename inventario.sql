@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2023 a las 04:54:06
+-- Tiempo de generación: 04-06-2023 a las 20:50:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -65,7 +65,7 @@ INSERT INTO `activos` (`id`, `nombre_producto`, `cantidad_inicial`, `cantidad_va
 (20, 'TINTA PARA IMPRESORA EPSON LIGHTCYAN', 1, 1, 2, '2023-06-03', '1', '101005'),
 (21, 'TINTA PARA IMPRESORA EPSON LIGHTMAGENTA', 2, 2, 2, '2023-06-03', '1', '101005'),
 (22, 'TINTA HP 954XL CYAN L0S62AL', 5, 5, 2, '2023-06-03', '1', '101005'),
-(23, 'TINTA HP 954XL MAGENTA L0S65AL', 5, 5, 2, '2023-06-03', '1', '101005'),
+(23, 'TINTA HP 954XL MAGENTA L0S65AL', 5, 3, 2, '2023-06-03', '1', '101005'),
 (24, 'TINTA HP 954XL YELLOW L068AL', 5, 5, 2, '2023-06-03', '1', '101005'),
 (25, 'TINTA HP 954XL BLACK L0S71AL', 5, 5, 2, '2023-06-03', '1', '101005'),
 (26, 'CASSETTE VIDEO 8 MM', 50, 50, 6, '2023-06-03', '1', '101006'),
@@ -75,12 +75,12 @@ INSERT INTO `activos` (`id`, `nombre_producto`, `cantidad_inicial`, `cantidad_va
 (30, 'FOLIADOR STANDARD', 8, 8, 1, '2023-06-03', '1', '101012'),
 (31, 'PILAS DURACELL D', 74, 74, 1, '2023-06-03', '1', '101012'),
 (32, 'MICA P/ FOTOCHECK HORIZ. 9.9 X 7.9 CM', 0, 0, 1, '2023-06-03', '1', '101012'),
-(33, 'PABILO N° 20   X 1/4 KG', 3, 3, 1, '2023-06-03', '1', '101012'),
+(33, 'PABILO N° 20   X 1/4 KG', 3, 1, 1, '2023-06-03', '1', '101012'),
 (34, 'CARGADOR DE PILAS RECARGABLES', 7, 7, 7, '2023-06-03', '1', '101012'),
 (35, 'PILAS REGARGABLES', 2, 2, 1, '2023-06-03', '1', '101012'),
 (36, 'PILA LITHIUM 3V ­ CR2032 SONNY', 10, 10, 1, '2023-06-03', '1', '101012'),
 (37, 'MECHERO DE GAS P/ GAS BUTANO', 4, 4, 6, '2023-06-03', '1', '101012'),
-(38, 'AGUA OXIGENADA QP', 2, 2, 11, '2023-06-03', '1', '101012'),
+(38, 'AGUA OXIGENADA QP', 2, 1, 11, '2023-06-03', '1', '101012'),
 (39, 'PILA DE LITIO CR 2025 3V', 8, 8, 1, '2023-06-03', '1', '101012'),
 (40, 'PILAS DURACELL \"AAA\"', 5, 5, 1, '2023-06-03', '1', '101012'),
 (41, 'MEDICINA VENDA ELÁSTICA 5\" X 5Y', 4, 4, 11, '2023-06-03', '1', '101012'),
@@ -298,7 +298,7 @@ INSERT INTO `activos` (`id`, `nombre_producto`, `cantidad_inicial`, `cantidad_va
 (253, 'DRIZA BLANCA DE 3/16´´', 1, 1, 7, '2023-06-03', '1', '101056'),
 (254, 'ESPATULA DE METAL 3\"', 2, 2, 7, '2023-06-03', '1', '101057'),
 (255, 'TAPA CIEGA METALICA CIRCULAR 4\"', 14, 14, 7, '2023-06-03', '1', '101057'),
-(256, 'LIMPIADOR DE ACERO 3M', 28, 28, 7, '2023-06-03', '1', '101057'),
+(256, 'LIMPIADOR DE ACERO 3M', 28, 8, 7, '2023-06-03', '1', '101057'),
 (257, 'CAJA DE PASE  6\"X6\" PVC PARA CABLEADO ELECTRICO', 5, 5, 7, '2023-06-03', '1', '101057'),
 (258, 'CAJA RECTANGULAR PARA EXTERIOR DE 2\" X 4\"', 1, 1, 7, '2023-06-03', '1', '101057'),
 (259, 'TAPA PROTEGIDA PARA  IDROBOX TICINO MODELO 25603', 6, 6, 7, '2023-06-03', '1', '101057'),
@@ -471,7 +471,7 @@ INSERT INTO `activos` (`id`, `nombre_producto`, `cantidad_inicial`, `cantidad_va
 (426, 'LIBRO  MATH GR KINDER HARCOURT', 10, 10, 4, '2023-06-03', '1', '101075'),
 (427, 'LIBRO MATH GRADE 2 HARCOURT', 11, 11, 4, '2023-06-03', '1', '101075'),
 (428, 'LIBRO LONGMAN DICTIONARY OF AMERICAN ENGLISH 3RD EDITION', 14, 14, 4, '2023-06-03', '1', '101076'),
-(429, 'LIBRO DICCIONARIO POCKET LONGMAN INGLES-ESPAÑOL/ESPAÑOL-INGLES', 6, 6, 4, '2023-06-03', '1', '101076'),
+(429, 'LIBRO DICCIONARIO POCKET LONGMAN INGLES-ESPAÑOL/ESPAÑOL-INGLES', 6, 2, 4, '2023-06-03', '1', '101076'),
 (430, 'LIBRO DICTIONARY  LONGMAN OF AMERICAN ENGLISH 4TH EDITION - THE KEY VOCABULARY BUILDING', 22, 22, 4, '2023-06-03', '1', '101076'),
 (431, 'LIBRO FUNDAMENTOS DE FISICA COMBO', 10, 10, 4, '2023-06-03', '1', '101077'),
 (432, 'LIBRO FUNDAMENTOS DE FISICA 10ED', 3, 3, 4, '2023-06-03', '1', '101077'),
@@ -588,7 +588,7 @@ INSERT INTO `activos` (`id`, `nombre_producto`, `cantidad_inicial`, `cantidad_va
 (543, 'ALMOHADA BLANCA', 2, 2, 6, '2023-06-03', '1', '101093'),
 (544, 'THERMO PARA AGUA CALIENTE', 1, 1, 6, '2023-06-03', '1', '101094'),
 (545, 'CORDON AZUL PARA FOTOCHECK CON SUJETADOR', 120, 120, 6, '2023-06-03', '1', '101094'),
-(546, 'MEDALLA CIRCULAR DORADA COLEGIO', 32, 32, 9, '2023-06-03', '1', '101095'),
+(546, 'MEDALLA CIRCULAR DORADA COLEGIO', 32, 27, 9, '2023-06-03', '1', '101095'),
 (547, 'MEDALLA CIRCULAR DORADA CON ESCUDO DE COLOR AZUL-BLANCO-ROJO', 22, 22, 9, '2023-06-03', '1', '101095'),
 (548, 'MEDALLA CIRCULAR PLATEADA COLEGIO', 36, 36, 9, '2023-06-03', '1', '101095'),
 (549, 'MEDALLA HEXAGONAL DORADA COLEGIO', 5, 5, 9, '2023-06-03', '1', '101095'),
@@ -1016,6 +1016,19 @@ CREATE TABLE `egresos` (
   `datetime` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `egresos`
+--
+
+INSERT INTO `egresos` (`id_egreso`, `id_activo`, `nombre`, `cantidad_retirada`, `id_tipo`, `datetime`) VALUES
+(4, 28, 'SOBRE PLASTICO  PARA CD', 0, 1, '2023-06-04 13:14:34'),
+(6, 546, 'MEDALLA CIRCULAR DORADA COLEGIO', 5, 9, '2023-06-04 13:25:26'),
+(7, 429, 'LIBRO DICCIONARIO POCKET LONGMAN INGLES-ESPAÑOL/ESPAÑOL-INGLES', 4, 4, '2023-06-04 13:49:20'),
+(8, 38, 'AGUA OXIGENADA QP', 1, 11, '2023-06-04 13:49:31'),
+(9, 33, 'PABILO N° 20   X 1/4 KG', 2, 1, '2023-06-04 13:49:37'),
+(10, 256, 'LIMPIADOR DE ACERO 3M', 20, 7, '2023-06-04 13:49:48'),
+(11, 23, 'TINTA HP 954XL MAGENTA L0S65AL', 2, 2, '2023-06-04 13:49:56');
+
 -- --------------------------------------------------------
 
 --
@@ -1048,6 +1061,14 @@ CREATE TABLE `reposicion` (
   `cantidad_a_reponer` int(11) DEFAULT NULL,
   `datetime` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reposicion`
+--
+
+INSERT INTO `reposicion` (`id_reposicion`, `id_activo`, `cantidad_a_reponer`, `datetime`) VALUES
+(4, 546, 15, '2023-06-04 13:27:13'),
+(5, 28, 5, '2023-06-04 13:36:55');
 
 -- --------------------------------------------------------
 
@@ -1286,7 +1307,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `nombres`, `apellido_paterno`, `apellido_materno`, `correo`, `clave`) VALUES
 (1, 1, 'Edward David', 'Alarco', 'Campos', 'edward@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
-(4, 3, 'Juan', 'Casas', 'Lujan', 'juan.casas@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
+(4, 2, 'Juan', 'Casas', 'Lujan', 'juan@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
+(5, 3, 'Pedro', 'Gonzales', 'Marino', 'pedro@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b');
 
 --
 -- Índices para tablas volcadas
@@ -1362,7 +1384,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `activos`
 --
 ALTER TABLE `activos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=939;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=940;
 
 --
 -- AUTO_INCREMENT de la tabla `disponibilidad`
@@ -1374,19 +1396,19 @@ ALTER TABLE `disponibilidad`
 -- AUTO_INCREMENT de la tabla `egresos`
 --
 ALTER TABLE `egresos`
-  MODIFY `id_egreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_egreso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `pdf`
 --
 ALTER TABLE `pdf`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `reposicion`
 --
 ALTER TABLE `reposicion`
-  MODIFY `id_reposicion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reposicion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -1410,7 +1432,7 @@ ALTER TABLE `ubigeo`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
