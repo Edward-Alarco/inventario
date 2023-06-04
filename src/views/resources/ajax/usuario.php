@@ -13,6 +13,12 @@
             echo json_encode($respuesta);
         }
 
+        public function actualizarRolUsuario(){
+            $datos = $this->array;
+            $respuesta =  ingresoController::actualizarRolController($datos);
+            echo json_encode($respuesta);
+        }
+
         public function registrarUsuario(){
             $datos = $this->array;
             $respuesta =  ingresoController::registrarUsuarioController($datos);
@@ -42,6 +48,11 @@
     if($_POST['validar'] == "actualizar_usuario"){
         $e -> array = $_POST;
         $e -> actualizarUsuario();
+    }
+
+    if($_POST['validar'] == "actualizar_rol"){
+        $e -> array = $_POST;
+        $e -> actualizarRolUsuario();
     }
 
 

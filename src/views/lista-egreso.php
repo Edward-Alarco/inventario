@@ -18,7 +18,7 @@
                     <th>Nombre del Activo</th>
                     <th>Tipo</th>
                     <th>Cantidad Retirada</th>
-                    <th>Fecha y Hora de ingreso</th>
+                    <th>Fecha y Hora del retiro</th>
                 </tr>
             </thead>
             <tbody>

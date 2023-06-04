@@ -67,8 +67,8 @@ $arrE = $e->selectActivosEgresadosController();
         foreach ($arrI as $key) {
             $tipo = $e->selectTipoActivoController($key['id_tipo']);
             $month = 'month-' . explode('-', $key['datetime'])[1];
-            $name = eliminar_acentos(strbasic($key['nombre']));
-            echo '<li data-nombre="'.$key['nombre'].'" data-tipo="' . strbasic($tipo['tipo']) . '" class="' . $month . ' bien-'.$key['id_ingreso'].'">' . $key['cantidad'] . '</li>';
+            $name = eliminar_acentos(strbasic($key['nombre_producto']));
+            echo '<li data-nombre="'.$key['nombre_producto'].'" data-tipo="' . strbasic($tipo['tipo']) . '" class="' . $month . ' bien-'.$key['id'].'">' . $key['cantidad_variable'] . '</li>';
         }
         ?>
     </ul>
@@ -85,12 +85,10 @@ $arrE = $e->selectActivosEgresadosController();
 </div>
 
 <?php
-function strbasic($str)
-{
+function strbasic($str) {
     return str_replace(' ', '_', strtolower($str));
 }
-function eliminar_acentos($cadena)
-{
+function eliminar_acentos($cadena) {
     //Reemplazamos la A y a
     $cadena = str_replace(
         array('Á', 'À', 'Â', 'Ä', 'á', 'à', 'ä', 'â', 'ª'),

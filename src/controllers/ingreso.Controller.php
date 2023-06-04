@@ -71,6 +71,17 @@
             return $respuesta;
         }
 
+        public static function actualizarRolController($datos){
+            $respuesta = ingresoModel::actualizarRolModel($datos['id_usuario'], $datos['id_rol']);
+            return $respuesta;
+        }
+
+        public static function selectUsersController(){
+            // validar si el usuario existe
+            $respuesta = ingresoModel::selectUsersModels();
+            return $respuesta;
+        }
+
     }
 
 ?>

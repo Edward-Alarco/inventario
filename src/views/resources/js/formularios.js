@@ -391,7 +391,7 @@ if (document.querySelector('form.registro_usuario')) {
                 if (data) {
                     Swal.fire({
                         position: 'center',
-                        icon: 'error',
+                        icon: 'success',
                         title: 'Usuario registrado correctamente',
                         showConfirmButton: false,
                         timer: 1500
@@ -410,6 +410,64 @@ if (document.querySelector('form.registro_usuario')) {
                 }
             })
 
+    })
+
+}
+
+// REGISTRO DE USUARIOS
+if (document.querySelector('form.actualizar_rol_usuario')) {
+
+    let formularios = document.querySelectorAll('form.actualizar_rol_usuario');
+
+    formularios.forEach(formulario=>{
+        formulario.addEventListener('submit', (e)=>{
+            e.preventDefault();
+
+            const formSend = new FormData(formulario)
+
+            let id_rol = formulario.querySelector('[name="id_rol"]'),
+                boton = formulario.querySelector('button');
+
+
+            fetch('src/views/resources/ajax/usuario.php', {
+                method: "POST",
+                body: formSend
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se cambió el rol del usuario',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then((result) => {
+
+                        if(boton.classList.contains('btn-primary')){
+                            boton.classList.replace('btn-primary', 'btn-success')
+                        }else{
+                            boton.classList.replace('btn-success', 'btn-primary')
+                        }
+
+                        if(id_rol.value == 3){
+                            id_rol.value = 2;
+                            boton.textContent = 'Cambiar a Involucrado';
+                        }else{
+                            id_rol.value = 3;
+                            boton.textContent = 'Cambiar a Usuario Común';
+                        }
+
+                    })
+                } else {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'Ocurrió un error al actualizar el usuario'
+                    })
+                }
+            })
+
+        })
     })
 
 }

@@ -42,7 +42,7 @@ $e = new inventarioController();
                     </div>
 
                     <div class="input-group mb-5">
-                        <label for="quantity" class="form-label w-100">Cantidad a retirar</label>
+                        <label for="quantity" class="form-label w-100">Cantidad a reponer</label>
                         <input type="number" class="form-control rounded-start" id="quantity" max="" disabled>
                         <button class="btn btn-primary px-5 rounded-end" type="button" id="quantity_all" disabled>Todo</button>
                         <div id="quantityHelp" class="form-text w-100"></div>

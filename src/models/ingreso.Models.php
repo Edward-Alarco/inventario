@@ -13,6 +13,14 @@
             $stmt = "";   
         }
 
+        //plural
+        public static function selectUsersModels(){
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM usuarios WHERE id_rol != 1");
+            $stmt->execute();
+            return $stmt->fetchAll();
+            $stmt = "";   
+        }
+
         //singular
         public static function selectUserModel($correo){
             $stmt = Conexion::conectar()->prepare("SELECT * FROM usuarios WHERE correo=:correo");
@@ -61,6 +69,14 @@
             $stmt->bindParam(":apellido_materno", $arr['apellido_materno'], PDO::PARAM_STR);
             $stmt->bindParam(":correo", $arr['correo'], PDO::PARAM_STR);
             $stmt->bindParam(":clave", $arr['clave_nueva'], PDO::PARAM_STR);
+            $stmt->execute() ? $ret = true : $ret = false;
+            return $ret;
+        }
+
+        public static function actualizarRolModel($id, $rol){
+            $stmt = Conexion::conectar()->prepare("UPDATE usuarios SET id_rol=:id_rol WHERE id_usuario=:id_usuario");
+            $stmt->bindParam(":id_usuario", $id, PDO::PARAM_INT);
+            $stmt->bindParam(":id_rol", $rol, PDO::PARAM_INT);
             $stmt->execute() ? $ret = true : $ret = false;
             return $ret;
         }

@@ -82,7 +82,7 @@
                     foreach ($a as $k) {
                         
                         $activo = inventarioModel::selectActivoModel($key['id_activo']);
-                        if($activo['cantidad_inicial'] == $activo['cantidad']){
+                        if($activo['cantidad_inicial'] == $activo['cantidad_variable']){
 
                             // ---------- tiempos de reposicion ---------------
                             $fecha1 = new DateTime($k['datetime']);
@@ -92,7 +92,7 @@
                             // ---------- tiempos de reposicion ---------------
 
                             // if($Tr != 0){
-                                echo '<p>'.$activo['nombre'].'||'.$k['datetime'].'||'.$activo['datetime'].'||'.$key['id_activo'].'||'.$Tr.'</p>';
+                                echo '<p>'.$activo['nombre_producto'].'||'.$k['datetime'].'||'.$activo['datetime'].'||'.$key['id_activo'].'||'.$Tr.'</p>';
                                 // nombre activo || tiempo de reposicion || tiempo inicial en el que se ingreso el activo || id del activo || tiempo de reposicion (diferencia de fechas)
                             // }
                         }
@@ -142,7 +142,7 @@
                 $ingreso = inventarioModel::selectActivoModel($egreso['id_activo']);
 
                 //actualizar las cantidades en la tabla de ingresos y egresos
-                $nueva_cantidad_para_ingreso = $ingreso['cantidad'] + $cantidad_a_retirar;
+                $nueva_cantidad_para_ingreso = $ingreso['cantidad_variable'] + $cantidad_a_retirar;
                 $nueva_cantidad_para_egreso = $egreso['cantidad_retirada'] - $cantidad_a_retirar;
 
                 $actualizarCantidadIngreso = inventarioModel::actualizarCantidadActivoModel($nueva_cantidad_para_ingreso, $egreso['id_activo']);
