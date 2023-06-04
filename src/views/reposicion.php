@@ -14,9 +14,7 @@ $e = new inventarioController();
                 <p>Completa el formulario para reponer el activo retirado previamente:</p>
                 <hr>
                 <form class="reposicion">
-                    <div class="alert alert-danger mb-3 desactived" role="alert">
-                        Completar todos los campos del formulario
-                    </div>
+                    <div class="alert alert-danger mb-3 desactived" role="alert">Completar todos los campos del formulario</div>
 
                     <div class="mb-3">
                         <label for="type_product" class="form-label">Tipo de Producto</label>
