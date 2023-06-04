@@ -463,6 +463,63 @@ if (document.querySelector('form.login_usuario')) {
 
 }
 
+// ACTUALIZAR USUARIO - MI PERFIL
+if (document.querySelector('form.actualizar_usuario')) {
+
+    let formulario = document.querySelector('form.actualizar_usuario');
+
+    formulario.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formSend = new FormData(formulario)
+
+        if(formulario.querySelector('[name="clave"]').value.replace(/\s/g, "") == ''){
+            invalid();
+            return
+        }
+
+        if(formulario.querySelector('#clave_nueva').value.replace(/\s/g, "") != ''){
+            formSend.append('clave_nueva', formulario.querySelector('#clave_nueva').value)
+        }
+
+        /*for (const value of formSend.values()) {
+            if (value == "") {
+                invalid();
+                return
+            }
+        }*/
+
+        fetch('src/views/resources/ajax/usuario.php', {
+            method: "POST",
+            body: formSend
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data == 'clave_incorrecta') {
+                // formulario.reset();
+                Toast.fire({
+                    icon: 'error',
+                    title: 'La clave no es la correcta'
+                })
+                return
+            }
+
+            if (data) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Actualizando y cerrando sesión'
+                })
+
+                setTimeout(function(){
+                    window.location.href = '?view=cerrar'
+                }, 2000)
+            }
+        })
+    })
+
+}
+
 
 function validarFormulario(arr) {
     var validar = 0;

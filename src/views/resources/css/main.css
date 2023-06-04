@@ -59,4 +59,11 @@ table.dataTable tbody tr p {
 .import ion-icon {
   font-size: 30px;
 }
+
+.nav-link ion-icon {
+  margin-right: 2px;
+  font-size: 23px;
+  width: 30px;
+  text-align: left;
+}
 /*# sourceMappingURL=main.css.map */

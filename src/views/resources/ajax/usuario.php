@@ -7,6 +7,12 @@
 
         public $array;
 
+        public function actualizarUsuario(){
+            $datos = $this->array;
+            $respuesta =  ingresoController::actualizarUsuarioController($datos);
+            echo json_encode($respuesta);
+        }
+
         public function registrarUsuario(){
             $datos = $this->array;
             $respuesta =  ingresoController::registrarUsuarioController($datos);
@@ -31,6 +37,11 @@
     if($_POST['validar'] == "login_usuario"){
         $e -> array = $_POST;
         $e -> ingresarUsuario();
+    }
+
+    if($_POST['validar'] == "actualizar_usuario"){
+        $e -> array = $_POST;
+        $e -> actualizarUsuario();
     }
 
 

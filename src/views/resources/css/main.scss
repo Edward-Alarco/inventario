@@ -38,7 +38,6 @@ table.dataTable tbody tr{
         overflow: hidden;
     }
 }
-
 .import{
     position: fixed;
     bottom: 10px;
@@ -50,5 +49,13 @@ table.dataTable tbody tr{
     padding: 10px;
     ion-icon{
         font-size: 30px;
+    }
+}
+.nav-link{
+    ion-icon{
+        margin-right: 2px;
+        font-size: 23px;
+        width: 30px;
+        text-align: left;
     }
 }

@@ -7,7 +7,9 @@
     $arr = $e -> selectActivosController();
 ?>
 
+<?php if($_SESSION['rol'] == 1): ?>
 <a href="?view=importar" class="btn btn-success btn-lg import"><ion-icon name="cloud-upload-outline"></ion-icon></a>
+<?php endif; ?>
 
 <section class="py-5">
     <div class="container">
@@ -19,8 +21,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Cantidad de ingresos de bienes registrados</h5>
                         <p class="card-text">Se registrá la cantidad, activo, fecha, hora y otros datos de suma relevancia para su guardado</p>
+                        <?php if($_SESSION['rol'] != 3): ?>
                         <a href="?view=ingreso" class="btn btn-primary">Ingresar Nuevo Activo</a>
                         <a href="?view=reposicion" class="btn btn-danger">Reposición</a>
+                        <?php endif; ?>
                         <a href="?view=lista-ingreso" class="btn btn-success">Ver todos</a>
                     </div>
                 </div>
@@ -32,7 +36,9 @@
                     <div class="card-body">
                         <h5 class="card-title">Cantidad de egresos de bienes registrados</h5>
                         <p class="card-text">Se registrá la cantidad, activo, fecha, hora y otros datos de suma relevancia para su guardado</p>
+                        <?php if($_SESSION['rol'] != 3): ?>
                         <a href="?view=egreso" class="btn btn-primary">Egresar Activo</a>
+                        <?php endif; ?>
                         <a href="?view=lista-egreso" class="btn btn-success">Ver todos</a>
                     </div>
                 </div>
