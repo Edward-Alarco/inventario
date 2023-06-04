@@ -1,11 +1,7 @@
+<?php require_once dirname(__FILE__).'/../views/inc/session.php'; ?>
 <?php 
-    session_start();
-    if(count($_SESSION) == 0){
-        header('Location: http://localhost/inventario/?view=cerrar');
-    }
-
-    require_once "C:/xampp/htdocs/inventario/src/controllers/inventario.Controller.php";
-    require_once "C:/xampp/htdocs/inventario/src/models/inventario.Models.php";
+    require_once dirname(__FILE__) . "/../controllers/inventario.Controller.php";
+    require_once dirname(__FILE__) . "/../models/inventario.Models.php";
 
     $e = new inventarioController();
     $arr = $e -> selectActivosEgresadosController();

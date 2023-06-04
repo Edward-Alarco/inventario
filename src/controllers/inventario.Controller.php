@@ -2,6 +2,11 @@
 
     class inventarioController{
 
+        public static function registrarPDFController($datos){
+            $respuesta = inventarioModel::registrarRutaPDFModel($datos['id_activo'], $datos['ruta']);
+            return $respuesta;
+        }
+
         public static function registrarActivoController($datos){
 
             date_default_timezone_set('America/Lima');
@@ -106,10 +111,10 @@
 
             $cantidad_retirada = $datos['quantity'];
 
-            $arrProductoSeleccionado = inventarioModel::selectActivoModel($id_producto);
+            $arrProductoSeleccionado = inventarioModel::selectActivoModel(intval($id_producto));
             if($arrProductoSeleccionado){
                 $save_egreso = inventarioModel::guardarEgresoModel($arrProductoSeleccionado, $cantidad_retirada, $time);
-                $cantidad_sobrante = intval($arrProductoSeleccionado['cantidad']) - intval($cantidad_retirada);
+                $cantidad_sobrante = intval($arrProductoSeleccionado['cantidad_variable']) - intval($cantidad_retirada);
 
                 if($cantidad_sobrante <= 0){ //si es que ya no existe stock, eliminamos el producto
                     //$respuesta1 = inventarioModel::eliminarActivoModel($id_producto);
@@ -166,6 +171,11 @@
 
         public static function selectTipoActivoController($id){
             $respuesta = inventarioModel::selectTipoActivoModel($id);
+            return $respuesta;
+        }
+
+        public static function selectPDFActivoController($id){
+            $respuesta = inventarioModel::selectPDFActivoModel($id);
             return $respuesta;
         }
 

@@ -1,4 +1,3 @@
-const qr = document.querySelector('.qr_image');
 var delay = 0;
 const ruta_pdf = 'http://localhost/inventario/src/pdfs/'
 
@@ -7,13 +6,20 @@ setInterval(() => {
 }, 1000);
 
 // REGISTRO DE ACTIVOS
-if (document.querySelector('form.registro')) {
+if(document.querySelector('form.registro')) {
+
+    const qr_container = document.querySelector('#qr_container'),
+        qr = qr_container.querySelector('.qr_image');
 
     const formulario = document.querySelector('form.registro');
     var producto = {};
 
     formulario.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        if(!qr_container.classList.contains('d-none')){
+            qr_container.classList.add('d-none')
+        }
 
         // ADJUNTANDO DATOS PARA EL PDF
         producto.nombre = formulario.querySelector('[name="nombre_producto"]').value;
@@ -25,7 +31,7 @@ if (document.querySelector('form.registro')) {
 
         const formSend = new FormData(formulario);
         formSend.append('delay', delay);
-        formSend.append('ruta_pdf', ruta_pdf+producto.nombre+'.pdf');
+        formSend.append('ruta_pdf', ruta_pdf+(producto.nombre).replaceAll(' ','_')+'.pdf');
 
         for (const value of formSend.values()) {
             if (value == "") {
@@ -69,6 +75,44 @@ if (document.querySelector('form.registro')) {
     })
 }
 
+// GENERAR PDF DESDE LISTA DE INGRESOS - VER TODOS
+if(document.querySelector('.generate_pdf_by_table')){
+    const filas = Array.from(document.querySelectorAll('.generate_pdf_by_table'))
+    filas.forEach(fila=>{
+        fila.addEventListener('submit', (e)=>{
+            e.preventDefault();
+
+            fila.querySelector('button').disabled = true;
+
+            const formSend = new FormData();
+            formSend.append('id_activo', fila.querySelector('[name="id_activo"]').value )
+            formSend.append('validar', fila.querySelector('[name="validar"]').value )
+            formSend.append('ruta', ruta_pdf+fila.querySelector('[name="nombre"]').value+'.pdf' )
+
+            var producto = {};
+            // ADJUNTANDO DATOS PARA EL PDF
+            producto.nombre = fila.querySelector('[name="nombre"]').value;
+            producto.cantidad = parseInt(fila.querySelector('[name="cantidad"]').value);
+            producto.tipo = fila.querySelector('[name="tipo"]').value;
+            producto.posicion = fila.querySelector('[name="posicion"]').value;
+            producto.fecha = fila.querySelector('[name="fecha"]').value;
+            // ADJUNTANDO DATOS PARA EL PDF
+
+            fetch('src/views/resources/ajax/inventario.php', {
+                method: "POST",
+                body: formSend
+            })
+            .then(res => res.json())
+            .then(data => {
+                Toast.fire({ icon: 'success', title: 'Generando PDF...' })
+                //generacion del pdf
+                pdfExport(producto);
+            })
+
+        })
+    })
+}
+
 async function pdfExport(producto){
     let formulario = new FormData();
     formulario.append('nombre', producto.nombre);
@@ -87,6 +131,14 @@ async function pdfExport(producto){
 
 function makeQr(url){
     console.log(url);
+    let qr = document.querySelector('.qr_image');
+
+    if(document.querySelector('#qr_container')){
+        if(document.querySelector('#qr_container').classList.contains('d-none')){
+            document.querySelector('#qr_container').classList.remove('d-none')
+        }
+    }
+
     var options = {
         text: url,
         width: 300,
@@ -100,6 +152,14 @@ function makeQr(url){
         tooltip: false,
     }
     new QRCode(qr, options);
+
+
+    if(document.querySelector('#staticBackdrop')){
+        setTimeout(function(){
+            const myModal = new bootstrap.Modal('#staticBackdrop', { keyboard: false })
+            myModal.toggle()
+        }, 1250)
+    }
 }
 
 // REPOSICION DE ACTIVOS

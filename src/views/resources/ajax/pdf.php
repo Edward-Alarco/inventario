@@ -1,10 +1,17 @@
 <?php
     ob_start();
-    $nombre = $_POST['nombre'];
+    $nombre = reemplazarEspacios($_POST['nombre']);
     $cantidad = $_POST['cantidad'];
     $tipo = $_POST['tipo'];
     $fecha = $_POST['fecha'];
     $posicion = $_POST['posicion'];
+
+    function reemplazarEspacios($texto) {
+        $caracteresEspeciales = array('"', '(', ')', '/', '´´', '``');
+        $texto = str_replace(' ', '_', $texto);
+        $texto = str_replace($caracteresEspeciales, '', $texto);
+        return $texto;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +21,7 @@
 </head>
 <style>*{margin: 0;padding: 0;box-sizing: border-box;}body{padding:2rem;}img{width:100%;height:auto;aspect-ratio:1/1;/*margin-top:120px;*/}</style>
 <body>
-  <h1><?php echo $nombre; ?></h1>
+  <h1><?php echo reemplazarCaracteresEspeciales($nombre); ?></h1>
   <p>Cantidad: <?php echo $cantidad; ?></p>
   <p>Tipo de Producto: <?php echo $tipo; ?></p>
   <p>Fecha: <?php echo $fecha; ?></p>
@@ -24,6 +31,16 @@
 <?php $html = ob_get_clean(); ?>
 <?php
     
+    function reemplazarCaracteresEspeciales($texto) {
+        $caracteresEspeciales = array('"', '(', ')', '/', '´´', '``');
+        $texto = str_replace('_', ' ', $texto);
+        foreach ($caracteresEspeciales as $caracter) {
+          $texto = str_replace('', $caracter, $texto);
+        }
+        return $texto;
+    }
+
+
     require_once('../dompdf/autoload.inc.php');
     // // reference the Dompdf namespace
     use Dompdf\Dompdf;

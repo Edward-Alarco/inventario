@@ -90,7 +90,7 @@
         //singular
         public static function selectActivoModel($id){
             $stmt = Conexion::conectar()->prepare("SELECT * FROM activos WHERE id=:id");
-            $stmt->bindParam(":id_ingreso", $id, PDO::PARAM_INT);
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
             return $stmt->fetch();
             $stmt = "";   
@@ -132,8 +132,8 @@
 
         public static function guardarEgresoModel($array, $cantidad_retirada, $time){
             $stmt = Conexion::conectar()->prepare("INSERT INTO egresos (id_activo, nombre, cantidad_retirada, id_tipo, datetime) VALUES(:id_activo, :nombre, :cantidad_retirada, :id_tipo, :datetime)");
-            $stmt->bindParam(":id_activo", $array['id_ingreso'], PDO::PARAM_INT);
-            $stmt->bindParam(":nombre", $array['nombre'], PDO::PARAM_STR);
+            $stmt->bindParam(":id_activo", $array['id'], PDO::PARAM_INT);
+            $stmt->bindParam(":nombre", $array['nombre_producto'], PDO::PARAM_STR);
             $stmt->bindParam(":cantidad_retirada", $cantidad_retirada, PDO::PARAM_INT);
             $stmt->bindParam(":id_tipo", $array['id_tipo'], PDO::PARAM_INT);
             $stmt->bindParam(":datetime", $time, PDO::PARAM_STR);
@@ -149,8 +149,8 @@
         }
 
         public static function actualizarCantidadActivoModel($cantidad_sobrante, $id){
-            $stmt = Conexion::conectar()->prepare("UPDATE activos SET cantidad=:cantidad WHERE id_ingreso=:id_ingreso");
-            $stmt->bindParam(":cantidad", $cantidad_sobrante, PDO::PARAM_INT);
+            $stmt = Conexion::conectar()->prepare("UPDATE activos SET cantidad_variable=:cantidad_variable WHERE id=:id");
+            $stmt->bindParam(":cantidad_variable", $cantidad_sobrante, PDO::PARAM_INT);
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->execute() ? $ret = true : $ret = false;
             return $ret;
@@ -167,6 +167,14 @@
         public static function selectTipoActivoModel($id){
             $stmt = Conexion::conectar()->prepare("SELECT * FROM tipos WHERE id_tipo=:id_tipo");
             $stmt->bindParam(":id_tipo", $id, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetch();
+            $stmt = "";   
+        }
+
+        public static function selectPDFActivoModel($id){
+            $stmt = Conexion::conectar()->prepare("SELECT ruta FROM pdf WHERE id_activo=:id_activo");
+            $stmt->bindParam(":id_activo", $id, PDO::PARAM_INT);
             $stmt->execute();
             return $stmt->fetch();
             $stmt = "";   

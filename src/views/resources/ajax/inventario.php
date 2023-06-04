@@ -14,6 +14,12 @@
             echo json_encode($respuesta);
         }
 
+        public function registrarPDF(){
+            $datos = $this->datos;
+            $respuesta =  inventarioController::registrarPDFController($datos);
+            echo json_encode($respuesta);
+        }
+
         public function retirarActivo(){
             $datos = array(
                 'name' => $this->name,
@@ -52,6 +58,11 @@
     if($_POST['validar'] == "registrar_activo"){
         $e -> datos = $_POST;
         $e -> registrarActivo();
+    }
+
+    if($_POST['validar'] == "registrar_pdf"){
+        $e -> datos = $_POST;
+        $e -> registrarPDF();
     }
 
     if($_POST['validar'] == "egresarActivo"){

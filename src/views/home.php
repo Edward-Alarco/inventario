@@ -1,15 +1,13 @@
+<?php require_once dirname(__FILE__).'/../views/inc/session.php'; ?>
 <?php 
-    session_start();
-    if(count($_SESSION) == 0){
-        header('Location: http://localhost/inventario/?view=cerrar');
-    }
-
-    require_once dirname(__FILE__)."/../controllers/inventario.Controller.php";
-    require_once dirname(__FILE__)."/../models/inventario.Models.php";
+    require_once dirname(__FILE__) . "/../controllers/inventario.Controller.php";
+    require_once dirname(__FILE__) . "/../models/inventario.Models.php";
 
     $e = new inventarioController();
     $arr = $e -> selectActivosController();
 ?>
+
+<a href="?view=importar" class="btn btn-success btn-lg import"><ion-icon name="cloud-upload-outline"></ion-icon></a>
 
 <section class="py-5">
     <div class="container">
@@ -43,7 +41,7 @@
 
         <h2>Métricas</h2><hr>
         <div class="row mt-4 mb-5" style="row-gap:24px">
-            <div class="col-12 col-sm-6 col-md-4">
+            <div class="col-12 col-sm-6 col-md-6">
                 <div class="card">
                     <h5 class="card-header">Stock</h5>
                     <div class="card-body">
@@ -53,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-4">
+            <div class="col-12 col-sm-6 col-md-4 d-none">
                 <div class="card">
                     <h5 class="card-header">Control</h5>
                     <div class="card-body">
@@ -63,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-4">
+            <div class="col-12 col-sm-6 col-md-6">
                 <div class="card">
                     <h5 class="card-header">Tiempo</h5>
                     <div class="card-body">
@@ -75,7 +73,7 @@
         </div>
 
         <h2>Estadisticas</h2><hr>
-        <div class="row mt-4">
+        <div class="row mt-4 justify-content-center">
             <div class="col-12 col-sm-12 col-md-6">
                 <figure class="highcharts-figure w-100">
                     <div id="containerDonut" class="w-100"></div>

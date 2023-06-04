@@ -1,9 +1,5 @@
+<?php require_once dirname(__FILE__).'/../views/inc/session.php'; ?>
 <?php 
-session_start();
-if(count($_SESSION) == 0){
-    header('Location: http://localhost/inventario/?view=cerrar');
-}
-
 require_once dirname(__FILE__) . "/../controllers/inventario.Controller.php";
 require_once dirname(__FILE__) . "/../models/inventario.Models.php";
 
@@ -56,12 +52,10 @@ $ubicaciones = $e->selectAllUbigeoController();
                     <button type="submit" class="btn btn-primary w-50 py-2">Ingresar producto</button>
                 </form>
             </div>
-            <div class="col-12 col-md-6 mb-5">
-                <p class="text-center"><b>QR</b></p>
+            <div class="col-12 col-md-6 mb-5 d-none" id="qr_container">
+                <p class="text-center"><b>QR &nbsp;<ion-icon name="qr-code-outline"></ion-icon></b></p>
                 <hr>
-                <div class="qr_image w-100 d-block" style="aspect-ratio:1/1">
-
-                </div>
+                <div class="qr_image w-100 d-block text-center" style="aspect-ratio:1/1"></div>
             </div>
         </div>
     </div>
