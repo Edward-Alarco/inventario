@@ -11,7 +11,7 @@ $e = new inventarioController();
         <div class="row">
             <div class="col-12 col-md-6">
                 <h1>Reposición</h1>
-                <p>Completa el formulario para reponer el activo retirado previamente:</p>
+                <p>Completa el formulario para reponer el recurso retirado previamente:</p>
                 <hr>
                 <form class="reposicion">
                     <div class="alert alert-danger mb-3 desactived" role="alert">Completar todos los campos del formulario</div>

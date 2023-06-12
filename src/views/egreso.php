@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <h1>Egreso</h1>
-                <p>Completa el formulario para registrar el egreso del activo seleccionado:</p>
+                <p>Completa el formulario para registrar el egreso del recurso seleccionado:</p>
                 <hr>
                 <form class="egreso">
                     <div class="alert alert-danger mb-3 desactived" role="alert">

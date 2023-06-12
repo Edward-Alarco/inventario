@@ -9,24 +9,25 @@
         <form method="POST" class="login_usuario">
             <input type="hidden" name="validar" value="login_usuario">
             <div class="mb-3">
-                <h2 class="text-center pb-3 mb-4 border-bottom">Ingreso</h2>
+                <img src="src/views/resources/img/logo.png" class="d-block mx-auto">
+                <!-- <h2 class="text-center pb-3 mb-4 border-bottom">Ingreso</h2> -->
             </div>
             <div>
-                <label for="" class="form-label d-block">Correo</label>
+                <label for="" class="form-label d-block text-white">Correo</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" autocomplete="false" id="correo">
                     <span class="input-group-text">@gmail.com</span>
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Clave</label>
+                <label class="form-label text-white">Clave</label>
                 <input type="password" class="form-control" name="clave">
             </div>
-            <button type="submit" class="btn btn-primary w-100 mt-4 py-2">Ingresar</button>
+            <button type="submit" class="btn btn-primary w-100 mt-4 py-2 btn-light">Ingresar</button>
         </form>
-        <p class="text-center mt-4">
+        <p class="text-center mt-4 text-white">
             ¿Aún no eres usuario?
-            <a href="?view=registro">Registrate</a>
+            <a href="?view=registro" class="text-white">Registrate</a>
         </p>
     </div>
 </section>

@@ -14,7 +14,7 @@ $ubicaciones = $e->selectAllUbigeoController();
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 mb-5">
-                <p>Completa el formulario para registrar el ingreso de un nuevo activo:</p>
+                <p>Completa el formulario para registrar el ingreso de un nuevo recurso:</p>
                 <hr>
                 <form class="registro">
                     <input type="hidden" name="validar" value="registrar_activo">
@@ -38,7 +38,7 @@ $ubicaciones = $e->selectAllUbigeoController();
                         </select>
                     </div>
                     <div class="mb-4">
-                        <label class="form-label">Ubigeo</label>
+                        <label class="form-label">Posición <small>(dentro del inventario)</small></label>
                         <select name="posicion" class="form-select">
                             <!-- <option selected>Escoger la ubicación del producto a registrar</option> -->
                             <?php 

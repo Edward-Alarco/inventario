@@ -9,6 +9,10 @@
     <link href="src/views/resources/css/main.css" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <title>Gestor Inventario</title>
+
+    <link rel="shortcut icon" href="src/views/resources/img/escudo_web.ico" type="image/x-icon">
+    <link rel="icon" href="src/views/resources/img/escudo_web.ico" type="image/x-icon">
+
+    <title>C.E.P. Palas Atenea</title>
 </head>
 <body>

@@ -10,13 +10,13 @@
 
 <section class="py-5">
     <div class="container">
-        <h1>Registro de Activos</h1>
-        <p class="mb-5">Aquí se encuentra un registro de todos los activos presentes hasta el momento en el inventario.</p>
+        <h1>Registro de Recursos</h1>
+        <p class="mb-5">Aquí se encuentra un registro de todos los recursos presentes hasta el momento en el inventario.</p>
         <table id="table_id" class="display stripe cell-border hover nowrap">
             <thead>
                 <tr>
                     <th class="text-center">ID</th>
-                    <th class="text-left">Nombre del activo</th>
+                    <th class="text-left">Nombre del recurso</th>
                     <th class="text-center">Tipo</th>
                     <th class="text-center">Cantidad<br>Inicial</th>
                     <th class="text-center">Quedan<br>dentro:</th>

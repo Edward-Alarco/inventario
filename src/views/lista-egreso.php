@@ -10,12 +10,12 @@
 
 <section class="py-5">
     <div class="container">
-        <h1>Registro de Activos Egresados</h1>
-        <p class="mb-5">Aquí se encuentra un registro de todos los activos retirados hasta el momento en el inventario, con su fecha y hora de egreso y la cantidad de stock que se retiró en ese instante.</p>
+        <h1>Registro de recursos egresados</h1>
+        <p class="mb-5">Aquí se encuentra un registro de todos los recursos retirados hasta el momento en el inventario, con su fecha y hora de egreso y la cantidad de stock que se retiró en ese instante.</p>
         <table id="table_id" class="display stripe cell-border hover nowrap">
             <thead>
                 <tr>
-                    <th>Nombre del Activo</th>
+                    <th>Nombre del recurso</th>
                     <th>Tipo</th>
                     <th>Cantidad Retirada</th>
                     <th>Fecha y Hora del retiro</th>

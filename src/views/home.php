@@ -13,7 +13,7 @@
 
 <section class="py-5">
     <div class="container">
-        <h2>Procedimientos</h2><hr>
+        <h2 class="">Procedimientos</h2><hr>
         <div class="row mt-4 mb-5" style="row-gap:24px">
             <div class="col-12 col-sm-12 col-md-6">
                 <div class="card">
@@ -22,7 +22,7 @@
                         <h5 class="card-title">Cantidad de ingresos de bienes registrados</h5>
                         <p class="card-text">Se registrá la cantidad, activo, fecha, hora y otros datos de suma relevancia para su guardado</p>
                         <?php if($_SESSION['rol'] != 3): ?>
-                        <a href="?view=ingreso" class="btn btn-primary">Ingresar Nuevo Activo</a>
+                        <a href="?view=ingreso" class="btn btn-primary">Ingresar Nuevo Recurso</a>
                         <a href="?view=reposicion" class="btn btn-danger">Reposición</a>
                         <?php endif; ?>
                         <a href="?view=lista-ingreso" class="btn btn-success">Ver todos</a>
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <h2>Métricas</h2><hr>
+        <h2 class="">Métricas</h2><hr>
         <div class="row mt-4 mb-5" style="row-gap:24px">
             <div class="col-12 col-sm-6 col-md-6">
                 <div class="card">
@@ -78,12 +78,12 @@
             </div>
         </div>
 
-        <h2>Estadisticas</h2><hr>
+        <h2 class="">Estadisticas</h2><hr>
         <div class="row mt-4 justify-content-center">
             <div class="col-12 col-sm-12 col-md-6">
                 <figure class="highcharts-figure w-100">
                     <div id="containerDonut" class="w-100"></div>
-                    <p class="highcharts-description text-center w-100"></p>
+                    <p class="highcharts-description text-center w-100  mt-2"></p>
                 </figure>
             </div>
             <div class="col-12 col-sm-12 col-md-6">
